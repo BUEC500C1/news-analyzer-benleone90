@@ -7,3 +7,7 @@ News Analyzer is a evolving web-based application that uses various APIs to allo
 - Clone and `cd` into repository
 - `python3 -m venv venv`
 - `pip install -r requirements.txt`
+
+## Reference
+
+Many resources and other APIs were found from this [public-apis repo](https://github.com/public-apis/public-apis)
