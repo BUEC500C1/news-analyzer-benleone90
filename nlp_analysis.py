@@ -6,17 +6,19 @@ app = Flask(__name__)
 api = Api(app)
 client = language_v1.LanguageServiceClient()
 
-testing = u"Hello, World!"  # Unicode stringl
-document = language_v1.Document(
-    content=testing, type=language_v1.Document.Type.PLAIN_TEXT)
+# text = u"Hello, World!"  # Unicode string
 
 
-class test(Resource):
+class analyzeSent(Resource):
     def get(self, text):
-        return text
+        document = language_v1.Document(
+            content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
+        sentiment = client.analyze_sentiment(
+            request={'document': document}).document_sentiment
+        return {'text': text, 'score': sentiment.score, 'magnitude': sentiment.magnitude}
 
 
-api.add_resource(test, "/api/<string:text>")
+api.add_resource(analyzeSent, "/nlp/<string:text>")
 
 if __name__ == '__main__':
     app.run(debug=True)
