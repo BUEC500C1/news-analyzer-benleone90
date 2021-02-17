@@ -10,13 +10,13 @@ newsapi = NewsApiClient(api_key=news_key)
 
 
 class newsInjest(Resource):
-    def get(self):
-        top_headlines = newsapi.get_top_headlines(q='bitcoin',
-                                                  language='en')
-        return top_headlines
+    def get(self, query):
+        all_articles = newsapi.get_everything(
+            q=query, language='en', sort_by='relevancy')
+        return all_articles
 
 
-api.add_resource(newsInjest, "/")
+api.add_resource(newsInjest, "/news/<string:query>")
 
 if __name__ == '__main__':
     app.run(debug=True)
