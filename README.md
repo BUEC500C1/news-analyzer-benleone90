@@ -6,7 +6,9 @@ News Analyzer is a evolving web-based application that uses various APIs to allo
 
 - Clone and `cd` into repository
 - `python3 -m venv venv`
-- `pip install -r requirements.txt`
+- `source venv/bin/activate`
+- `pip3 install -r requirements.txt`
+- `cd` into the module that you would like to test and run with `python3 [filename]`
 
 ## Reference
 
