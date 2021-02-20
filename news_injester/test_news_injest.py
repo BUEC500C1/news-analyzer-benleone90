@@ -1,6 +1,6 @@
 import pytest
 import requests
-from news_injester import newsInjest
+from news_injester import all_articles
 
 
 def test_news_injest():
