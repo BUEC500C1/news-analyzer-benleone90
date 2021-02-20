@@ -5,7 +5,7 @@ import os
 UPLOAD_FOLDER = './upload_dir/'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'doc', 'docx', 'odt'}
 
-template_dir = os.path.abspath('../')
+template_dir = os.path.abspath('../templates')
 app = Flask(__name__, template_folder=template_dir)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -32,7 +32,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('upload_file', filename=filename))
-    return render_template('/templates/upload.html')
+    return render_template('upload.html')
 
 
 if __name__ == "__main__":
