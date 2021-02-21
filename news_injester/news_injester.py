@@ -11,7 +11,7 @@ newsapi = NewsApiClient(api_key=news_key)
 def all_articles(query=None):
     all_articles = newsapi.get_everything(
         q=query, language='en', sort_by='relevancy')
-    app.logger.info('Test message')
+    #app.logger.info('Test message')
     return all_articles
 
 
