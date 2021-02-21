@@ -32,7 +32,7 @@ jobs:
         env:
           NEWS_KEY: ${{ secrets.NEWS_KEY }}
         run: |
-          coverage run -m pytest /news_injester/test_news_injest.py
+          coverage run -m pytest ../news_injester/test_news_injest.py
       - name: Show coverage report
         run: |
           coverage report -m
