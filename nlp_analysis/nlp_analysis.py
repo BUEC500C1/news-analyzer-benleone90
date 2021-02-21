@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask
 from google.cloud import language_v1
 
 app = Flask(__name__)
@@ -7,7 +7,7 @@ client = language_v1.LanguageServiceClient()
 
 @app.route("/nlp/<text>")
 def analyzeSentiment(text=None):
-    app.logger.info('Test message')
+    # app.logger.info('Test message')
     document = language_v1.Document(
         content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
     sentiment = client.analyze_sentiment(
