@@ -1,6 +1,6 @@
 # EC 500 Project - News Analyzer
 
-News Analyzer is a evolving web-based application that uses various APIs to allow users to upload documents, search newsfeeds, and analyze text.
+News Analyzer is an evolving web-based application that uses various APIs to allow users to upload documents, search newsfeeds, and analyze text.
 
 ## Setup
 
