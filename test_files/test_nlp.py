@@ -1,6 +1,9 @@
 import pytest
 import requests
-from nlp_analysis import analyzeSentiment
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
+from nlp_analysis.nlp_analysis import analyzeSentiment
 
 # Check on how to deply envvar for GitHub Actions with NLP
 

@@ -1,7 +1,9 @@
 import pytest
 import requests
-from news_injester import all_articles
-
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
+from news_injester.news_injester import all_articles
 
 def test_news_injest():
     response = requests.get("http://127.0.0.1:5000/news/bitcoin")
