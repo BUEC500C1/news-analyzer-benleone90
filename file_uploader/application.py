@@ -1,5 +1,6 @@
 from flask import Flask, request, flash, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
+import PyPDF2
 import os
 
 UPLOAD_FOLDER = './upload_dir/'
@@ -37,4 +38,4 @@ def upload_file():
 
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    application.run(host='0.0.0.0', port='8080', debug=True)
