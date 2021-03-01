@@ -3,11 +3,11 @@ from werkzeug.utils import secure_filename
 import os
 
 UPLOAD_FOLDER = './upload_dir/'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'doc', 'docx', 'odt'}
+ALLOWED_EXTENSIONS = {'pdf'}
 
-template_dir = os.path.abspath('./')
-app = Flask(__name__, template_folder=template_dir)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# template_dir = os.path.abspath('./')
+application = Flask(__name__)
+application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 def allowed_file(filename):
@@ -15,7 +15,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the POST request has the file part
@@ -30,10 +30,11 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(
+                application.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('upload_file', filename=filename))
     return render_template('upload.html')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
