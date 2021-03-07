@@ -6,7 +6,7 @@ import os
 UPLOAD_FOLDER = './upload_dir/'
 ALLOWED_EXTENSIONS = {'pdf'}
 
-# template_dir = os.path.abspath('./')
+# template_dir = os.path.abspath('/templates')
 application = Flask(__name__)
 application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 

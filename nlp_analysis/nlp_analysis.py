@@ -2,8 +2,8 @@ from flask import Flask, render_template, jsonify
 from google.cloud import language_v1
 import os
 
-template_dir = os.path.abspath('./')
-app = Flask(__name__, template_folder=template_dir)
+# template_dir = os.path.abspath('./')
+app = Flask(__name__)
 client = language_v1.LanguageServiceClient()
 
 
@@ -22,7 +22,7 @@ def analyzeSentiment(text=None):
     content = {'text': text, 'score': sentiment.score,
                'magnitude': sentiment.magnitude}
     jsonify(content)
-    return render_template("nlp_analysis.html", content=content)
+    return render_template("nlp_analysis", content=content)
 
 
 if __name__ == '__main__':

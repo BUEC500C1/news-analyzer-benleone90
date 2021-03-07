@@ -2,8 +2,8 @@ from flask import Flask, request, render_template
 from newsapi import NewsApiClient
 import os
 
-template_dir = os.path.abspath('./')
-app = Flask(__name__, template_folder=template_dir)
+# template_dir = os.path.abspath('./')
+app = Flask(__name__)
 news_key = os.environ.get("NEWS_KEY")
 newsapi = NewsApiClient(api_key=news_key)
 
