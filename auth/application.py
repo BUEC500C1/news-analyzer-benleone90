@@ -1,0 +1,50 @@
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
+import os
+
+application = Flask(__name__)
+
+application.secret_key = '#'
+
+application.config['MYSQL_HOST'] = os.environ.get("MYSQL_HOST")
+application.config['MYSQL_USER'] = os.environ.get("MYSQL_USER")
+application.config['MYSQL_PASSWORD'] = os.environ.get("MYSQL_PASSWORD")
+application.config['MYSQL_DB'] = 'newsanalyzer'
+
+mysql = MySQL(application)
+
+
+@application.route('/')
+@application.route('/login', methods=['GET', 'POST'])
+def login():
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(
+            'SELECT * FROM accounts WHERE username = % s AND password = % s', (username, password, ))
+        account = cursor.fetchone()
+        if account:
+            session['loggedin'] = True
+            session['id'] = account['id']
+            session['username'] = account['username']
+            msg = 'Logged in successfully'
+            return render_template('auth.html', msg=msg)
+        else:
+            msg = 'Incorrect username or password'
+    return render_template('#', msg=msg)
+
+
+@application.route('/logout')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    return redirect(url_for('auth'))
+
+
+if __name__ == '__main__':
+    application.run(debug=True)
