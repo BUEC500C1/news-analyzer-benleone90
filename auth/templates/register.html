@@ -18,7 +18,8 @@
       <h1 class="display-4 text-center">News Analyzer Login</h1>
     </div>
     <div class="container text-center">
-      <form action="{{ url_for('login') }}" method="post">
+      <form action="{{ url_for('register') }}" method="POST">
+        <div>{{ msg }}</div>
         <input
           type="text"
           name="username"
@@ -33,10 +34,6 @@
         />
         <input type="submit" value="Sign In" />
       </form>
-      <p class="bottom">
-        Dont't have an account?
-        <a class="bottom" href="{{url_for('register')}}"> Sign Up here</a>
-      </p>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
