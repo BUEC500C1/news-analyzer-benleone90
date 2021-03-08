@@ -9,7 +9,6 @@ ALLOWED_EXTENSIONS = {'pdf'}
 # template_dir = os.path.abspath('/templates')
 application = Flask(__name__)
 application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-application.secret_key = 'random_key'
 
 
 def allowed_file(filename):
@@ -19,17 +18,18 @@ def allowed_file(filename):
 
 @application.route('/', methods=['GET', 'POST'])
 def upload_file():
+    msg = ''
     if request.method == 'POST':
         # check if the POST request has the file part
         if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
+            msg = 'No file part'
+            return render_template('upload.html', msg=msg)
         file = request.files['file']
         # if user does not select file, browser also
         # submit an empty part without filename
         if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
+            msg = 'No file selected'
+            return render_template('upload.html', msg=msg)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(
