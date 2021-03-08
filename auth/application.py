@@ -6,7 +6,7 @@ import os
 
 application = Flask(__name__)
 
-application.secret_key = '#'
+application.secret_key = 'random_key'
 
 application.config['MYSQL_HOST'] = os.environ.get("MYSQL_HOST")
 application.config['MYSQL_USER'] = os.environ.get("MYSQL_USER")

@@ -9,6 +9,7 @@ ALLOWED_EXTENSIONS = {'pdf'}
 # template_dir = os.path.abspath('/templates')
 application = Flask(__name__)
 application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+application.secret_key = 'random_key'
 
 
 def allowed_file(filename):
