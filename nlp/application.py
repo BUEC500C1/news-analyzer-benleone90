@@ -11,6 +11,7 @@ def analyzeSentiment(text=None):
         content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
     response = client.analyze_sentiment(
         request={'document': document}).document_sentiment
+    print(response.score)
     return {'text': text, 'score': response.score, 'magnitude': response.magnitude}
 
 
