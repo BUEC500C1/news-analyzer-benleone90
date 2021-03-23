@@ -10,6 +10,21 @@ News Analyzer is an evolving web-based application that uses various APIs to all
 - `pip3 install -r requirements.txt`
 - `cd` into the module that you would like to test and run with `python3 [filename]`
 
-## Reference
+## User Stories
 
-Many resources and other APIs were found from this [public-apis repo](https://github.com/public-apis/public-apis)
+**End User**
+
+- As a journalist,
+- As a journalist,
+- As a journalist,
+
+**Developer**
+
+- As a developer,
+- As a developer,
+- As a developer,
+
+## Reference/Resources
+
+- Many resources and other APIs were found from this [public-apis repo](https://github.com/public-apis/public-apis).
+- The news injester API uses [NewsAPI.org](https://newsapi.org/) to create custom endpoints.

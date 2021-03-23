@@ -2,10 +2,6 @@
 
 The NLP module uses the Google NLP Analysis to provide an API endpoint for the final News Analysis project
 
-## Setup
-
-## User Stories
-
 ## API Endpoints
 
 ## Notes
