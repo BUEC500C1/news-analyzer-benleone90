@@ -27,9 +27,14 @@ News Analyzer is an evolving web-based application that uses various APIs to all
 ## Current Modules
 
 [News Analyzer](https://github.com/BUEC500C1/news-analyzer-benleone90/tree/master/news)
+
 [Natural Language Processing](https://github.com/BUEC500C1/news-analyzer-benleone90/tree/master/nlp)
+
 [PDF File Uploader](https://github.com/BUEC500C1/news-analyzer-benleone90/tree/master/upload)
+
 [User Login](https://github.com/BUEC500C1/news-analyzer-benleone90/tree/master/login)
+
+- [Login AWS Deployment](http://newsanalyzer-env.eba-cqsddsmp.us-east-1.elasticbeanstalk.com/)
 
 ## Reference/Resources
 

@@ -13,6 +13,8 @@ sudo yum install -y mysql-devel
 sudo yum install gcc
 ```
 
+This module is currently deployed on AWS Elastic Beanstalk. [View it here!](http://newsanalyzer-env.eba-cqsddsmp.us-east-1.elasticbeanstalk.com/)
+
 ## Notes
 
 - Main apps are named `application.py` to conform to Amazon Elastic Beanstalk requirements.
