@@ -18,4 +18,5 @@ This module is currently deployed on AWS Elastic Beanstalk. [View it here!](http
 ## Notes
 
 - Main apps are named `application.py` to conform to Amazon Elastic Beanstalk requirements.
-- Previoulsy deployed module on AWS. Taken down due to cost constraints.
+- Hashing of passwords would be required on a full-scale deployment.
+- Restrictions on names and passwords would be useful for maintaining database.
