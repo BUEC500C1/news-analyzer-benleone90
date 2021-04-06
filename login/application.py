@@ -8,7 +8,7 @@ application = Flask(__name__)
 
 application.secret_key = 'random_key'
 
-DEV = True
+DEV = False
 if DEV == True:
     application.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST')
     application.config['MYSQL_USER'] = os.environ.get('MYSQL_USER')
@@ -74,6 +74,7 @@ def register():
                 'INSERT INTO auth VALUES (NULL, % s, % s)', (username, password, ))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
+            return redirect(url_for('login'))
     elif request.method == 'POST':
         msg = 'Please fill out the form!'
     return render_template('register.html', msg=msg)
